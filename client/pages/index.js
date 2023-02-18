@@ -5,32 +5,6 @@ const Mp3Recorder = new MicRecorder({ bitRate: 128 });
 import Image from "next/image";
 
 // Import alphabet images
-import a from "../public/alphabet/a.jpg";
-import b from "../public/alphabet/b.jpg";
-import c from "../public/alphabet/c.jpg";
-import d from "../public/alphabet/d.jpg";
-import e from "../public/alphabet/e.jpg";
-import f from "../public/alphabet/f.jpg";
-import g from "../public/alphabet/g.jpg";
-import h from "../public/alphabet/h.jpg";
-import i from "../public/alphabet/i.jpg";
-import j from "../public/alphabet/j.jpg";
-import k from "../public/alphabet/k.jpg";
-import l from "../public/alphabet/l.jpg";
-import m from "../public/alphabet/m.jpg";
-import n from "../public/alphabet/n.jpg";
-import o from "../public/alphabet/o.jpg";
-import p from "../public/alphabet/p.jpg";
-import q from "../public/alphabet/q.jpg";
-import r from "../public/alphabet/r.jpg";
-import s from "../public/alphabet/s.jpg";
-import t from "../public/alphabet/t.jpg";
-import u from "../public/alphabet/u.jpg";
-import v from "../public/alphabet/v.jpg";
-import w from "../public/alphabet/w.jpg";
-import x from "../public/alphabet/x.jpg";
-import y from "../public/alphabet/y.jpg";
-import z from "../public/alphabet/z.jpg";
 
 import { useEffect, useState } from "react";
 
@@ -86,10 +60,11 @@ const App = () => {
         onChange={(e) => setText(e.target.value)}
       />
       <Image
-        src="/apple.png"
-        layout="fill"
+        src="/alphabet/a.jpg"
         alt="logo"
         className="sponserImage"
+        width={300}
+        height={300}
       />
       {alphabet.map((letter) => {
         if (letter === "a") {
