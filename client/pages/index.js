@@ -59,24 +59,268 @@ const App = () => {
         value={text}
         onChange={(e) => setText(e.target.value)}
       />
-      <Image
-        src="/alphabet/a.jpg"
-        alt="logo"
-        className="sponserImage"
-        width={300}
-        height={300}
-      />
+
       {alphabet.map((letter) => {
         if (letter === "a") {
-          return <img src={a} />;
+          return (
+            <Image
+              src="/alphabet/a.jpg"
+              alt="logo"
+              className="sponserImage"
+              width={130}
+              height={200}
+            />
+          );
         } else if (letter === "b") {
-          return <img src={b} />;
+          return (
+            <Image
+              src="/alphabet/b.jpg"
+              alt="logo"
+              className="sponserImage"
+              width={130}
+              height={200}
+            />
+          );
         } else if (letter === "c") {
-          return <img src={c} />;
+          return (
+            <Image
+              src="/alphabet/c.jpg"
+              alt="logo"
+              className="sponserImage"
+              width={130}
+              height={200}
+            />
+          );
         } else if (letter === "d") {
-          return <img src={d} />;
+          return (
+            <Image
+              src="/alphabet/d.jpg"
+              alt="logo"
+              className="sponserImage"
+              width={130}
+              height={200}
+            />
+          );
         } else if (letter === "e") {
-          return <img src={e} />;
+          return (
+            <Image
+              src="/alphabet/e.jpg"
+              alt="logo"
+              className="sponserImage"
+              width={130}
+              height={200}
+            />
+          );
+        } else if (letter === "f") {
+          return (
+            <Image
+              src="/alphabet/f.jpg"
+              alt="logo"
+              className="sponserImage"
+              width={130}
+              height={200}
+            />
+          );
+        } else if (letter === "g") {
+          return (
+            <Image
+              src="/alphabet/g.jpg"
+              alt="logo"
+              className="sponserImage"
+              width={130}
+              height={200}
+            />
+          );
+        } else if (letter === "h") {
+          return (
+            <Image
+              src="/alphabet/h.jpg"
+              alt="logo"
+              className="sponserImage"
+              width={130}
+              height={200}
+            />
+          );
+        } else if (letter === "i") {
+          return (
+            <Image
+              src="/alphabet/i.jpg"
+              alt="logo"
+              className="sponserImage"
+              width={130}
+              height={200}
+            />
+          );
+        } else if (letter === "j") {
+          return (
+            <Image
+              src="/alphabet/j.jpg"
+              alt="logo"
+              className="sponserImage"
+              width={130}
+              height={200}
+            />
+          );
+        } else if (letter === "k") {
+          return (
+            <Image
+              src="/alphabet/k.jpg"
+              alt="logo"
+              className="sponserImage"
+              width={130}
+              height={200}
+            />
+          );
+        } else if (letter === "l") {
+          return (
+            <Image
+              src="/alphabet/l.jpg"
+              alt="logo"
+              className="sponserImage"
+              width={130}
+              height={200}
+            />
+          );
+        } else if (letter === "m") {
+          return (
+            <Image
+              src="/alphabet/m.jpg"
+              alt="logo"
+              className="sponserImage"
+              width={130}
+              height={200}
+            />
+          );
+        } else if (letter === "n") {
+          return (
+            <Image
+              src="/alphabet/n.jpg"
+              alt="logo"
+              className="sponserImage"
+              width={130}
+              height={200}
+            />
+          );
+        } else if (letter === "o") {
+          return (
+            <Image
+              src="/alphabet/o.jpg"
+              alt="logo"
+              className="sponserImage"
+              width={130}
+              height={200}
+            />
+          );
+        } else if (letter === "p") {
+          return (
+            <Image
+              src="/alphabet/p.jpg"
+              alt="logo"
+              className="sponserImage"
+              width={130}
+              height={200}
+            />
+          );
+        } else if (letter === "q") {
+          return (
+            <Image
+              src="/alphabet/q.jpg"
+              alt="logo"
+              className="sponserImage"
+              width={130}
+              height={200}
+            />
+          );
+        } else if (letter === "r") {
+          return (
+            <Image
+              src="/alphabet/r.jpg"
+              alt="logo"
+              className="sponserImage"
+              width={130}
+              height={200}
+            />
+          );
+        } else if (letter === "s") {
+          return (
+            <Image
+              src="/alphabet/s.jpg"
+              alt="logo"
+              className="sponserImage"
+              width={130}
+              height={200}
+            />
+          );
+        } else if (letter === "t") {
+          return (
+            <Image
+              src="/alphabet/t.jpg"
+              alt="logo"
+              className="sponserImage"
+              width={130}
+              height={200}
+            />
+          );
+        } else if (letter === "u") {
+          return (
+            <Image
+              src="/alphabet/u.jpg"
+              alt="logo"
+              className="sponserImage"
+              width={130}
+              height={200}
+            />
+          );
+        } else if (letter === "v") {
+          return (
+            <Image
+              src="/alphabet/v.jpg"
+              alt="logo"
+              className="sponserImage"
+              width={130}
+              height={200}
+            />
+          );
+        } else if (letter === "w") {
+          return (
+            <Image
+              src="/alphabet/w.jpg"
+              alt="logo"
+              className="sponserImage"
+              width={130}
+              height={200}
+            />
+          );
+        } else if (letter === "x") {
+          return (
+            <Image
+              src="/alphabet/x.jpg"
+              alt="logo"
+              className="sponserImage"
+              width={130}
+              height={200}
+            />
+          );
+        } else if (letter === "y") {
+          return (
+            <Image
+              src="/alphabet/y.jpg"
+              alt="logo"
+              className="sponserImage"
+              width={130}
+              height={200}
+            />
+          );
+        } else if (letter === "z") {
+          return (
+            <Image
+              src="/alphabet/z.jpg"
+              alt="logo"
+              className="sponserImage"
+              width={130}
+              height={200}
+            />
+          );
         }
       })}
     </div>
