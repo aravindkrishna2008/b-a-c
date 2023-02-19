@@ -1,4 +1,5 @@
 import MicRecorder from "mic-recorder-to-mp3";
+import axios from "axios";
 
 const Mp3Recorder = new MicRecorder({ bitRate: 128 });
 
@@ -16,9 +17,12 @@ const App = () => {
   const [text, setText] = useState("");
   const [alphabet, setAlphabet] = useState([]);
 
+  const [file, setFile] = useState(null);
+  const [data, setData] = useState("");
+
   useEffect(() => {
-    setAlphabet(text.split(""));
-  }, [text]);
+    setAlphabet(data.split(""));
+  }, [data]);
 
   const start = () => {
     if (isBlocked) {
@@ -32,16 +36,50 @@ const App = () => {
     }
   };
 
+  // create function to send file to server using form data
+  const sendFile = async (file) => {
+    const formData = new FormData();
+    formData.append("file", file);
+    try {
+      const res = await axios.post(
+        "http://localhost:5001/upload-file/",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      // const { fileName, filePath } = res.data;
+      // setFile({ fileName, filePath });
+      setData(res.data);
+      console.log(res.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const stop = () => {
     Mp3Recorder.stop()
       .getMp3()
       .then(([buffer, blob]) => {
         const blobURL = URL.createObjectURL(blob);
+        // save the mp3 file
+        const file = new File(buffer, "me-at-thevoice.mp3", {
+          type: blob.type,
+          lastModified: Date.now(),
+        });
+
+        const player = new Audio(URL.createObjectURL(file));
+        // send file to server
+        sendFile(file);
+        console.log(player);
         setBlobURL(blobURL);
         setIsRecording(false);
         console.log(blobURL);
       })
       .catch((e) => console.log(e));
+    // save the mp3 file
   };
   return (
     <div className="App">
@@ -61,7 +99,7 @@ const App = () => {
       />
 
       {alphabet.map((letter) => {
-        if (letter === "a") {
+        if (letter.toLowerCase() === "a") {
           return (
             <Image
               src="/alphabet/a.jpg"
@@ -71,7 +109,7 @@ const App = () => {
               height={200}
             />
           );
-        } else if (letter === "b") {
+        } else if (letter.toLowerCase() === "b") {
           return (
             <Image
               src="/alphabet/b.jpg"
@@ -81,7 +119,7 @@ const App = () => {
               height={200}
             />
           );
-        } else if (letter === "c") {
+        } else if (letter.toLowerCase() === "c") {
           return (
             <Image
               src="/alphabet/c.jpg"
@@ -91,7 +129,7 @@ const App = () => {
               height={200}
             />
           );
-        } else if (letter === "d") {
+        } else if (letter.toLowerCase() === "d") {
           return (
             <Image
               src="/alphabet/d.jpg"
@@ -101,7 +139,7 @@ const App = () => {
               height={200}
             />
           );
-        } else if (letter === "e") {
+        } else if (letter.toLowerCase() === "e") {
           return (
             <Image
               src="/alphabet/e.jpg"
@@ -111,7 +149,7 @@ const App = () => {
               height={200}
             />
           );
-        } else if (letter === "f") {
+        } else if (letter.toLowerCase() === "f") {
           return (
             <Image
               src="/alphabet/f.jpg"
@@ -121,7 +159,7 @@ const App = () => {
               height={200}
             />
           );
-        } else if (letter === "g") {
+        } else if (letter.toLowerCase() === "g") {
           return (
             <Image
               src="/alphabet/g.jpg"
@@ -131,7 +169,7 @@ const App = () => {
               height={200}
             />
           );
-        } else if (letter === "h") {
+        } else if (letter.toLowerCase() === "h") {
           return (
             <Image
               src="/alphabet/h.jpg"
@@ -141,7 +179,7 @@ const App = () => {
               height={200}
             />
           );
-        } else if (letter === "i") {
+        } else if (letter.toLowerCase() === "i") {
           return (
             <Image
               src="/alphabet/i.jpg"
@@ -151,7 +189,7 @@ const App = () => {
               height={200}
             />
           );
-        } else if (letter === "j") {
+        } else if (letter.toLowerCase() === "j") {
           return (
             <Image
               src="/alphabet/j.jpg"
@@ -161,7 +199,7 @@ const App = () => {
               height={200}
             />
           );
-        } else if (letter === "k") {
+        } else if (letter.toLowerCase() === "k") {
           return (
             <Image
               src="/alphabet/k.jpg"
@@ -171,7 +209,7 @@ const App = () => {
               height={200}
             />
           );
-        } else if (letter === "l") {
+        } else if (letter.toLowerCase() === "l") {
           return (
             <Image
               src="/alphabet/l.jpg"
@@ -181,7 +219,7 @@ const App = () => {
               height={200}
             />
           );
-        } else if (letter === "m") {
+        } else if (letter.toLowerCase() === "m") {
           return (
             <Image
               src="/alphabet/m.jpg"
@@ -191,7 +229,7 @@ const App = () => {
               height={200}
             />
           );
-        } else if (letter === "n") {
+        } else if (letter.toLowerCase() === "n") {
           return (
             <Image
               src="/alphabet/n.jpg"
@@ -201,7 +239,7 @@ const App = () => {
               height={200}
             />
           );
-        } else if (letter === "o") {
+        } else if (letter.toLowerCase() === "o") {
           return (
             <Image
               src="/alphabet/o.jpg"
@@ -211,7 +249,7 @@ const App = () => {
               height={200}
             />
           );
-        } else if (letter === "p") {
+        } else if (letter.toLowerCase() === "p") {
           return (
             <Image
               src="/alphabet/p.jpg"
@@ -221,7 +259,7 @@ const App = () => {
               height={200}
             />
           );
-        } else if (letter === "q") {
+        } else if (letter.toLowerCase() === "q") {
           return (
             <Image
               src="/alphabet/q.jpg"
@@ -231,7 +269,7 @@ const App = () => {
               height={200}
             />
           );
-        } else if (letter === "r") {
+        } else if (letter.toLowerCase() === "r") {
           return (
             <Image
               src="/alphabet/r.jpg"
@@ -241,7 +279,7 @@ const App = () => {
               height={200}
             />
           );
-        } else if (letter === "s") {
+        } else if (letter.toLowerCase() === "s") {
           return (
             <Image
               src="/alphabet/s.jpg"
@@ -251,7 +289,7 @@ const App = () => {
               height={200}
             />
           );
-        } else if (letter === "t") {
+        } else if (letter.toLowerCase() === "t") {
           return (
             <Image
               src="/alphabet/t.jpg"
@@ -261,7 +299,7 @@ const App = () => {
               height={200}
             />
           );
-        } else if (letter === "u") {
+        } else if (letter.toLowerCase() === "u") {
           return (
             <Image
               src="/alphabet/u.jpg"
@@ -271,7 +309,7 @@ const App = () => {
               height={200}
             />
           );
-        } else if (letter === "v") {
+        } else if (letter.toLowerCase() === "v") {
           return (
             <Image
               src="/alphabet/v.jpg"
@@ -281,7 +319,7 @@ const App = () => {
               height={200}
             />
           );
-        } else if (letter === "w") {
+        } else if (letter.toLowerCase() === "w") {
           return (
             <Image
               src="/alphabet/w.jpg"
@@ -291,7 +329,7 @@ const App = () => {
               height={200}
             />
           );
-        } else if (letter === "x") {
+        } else if (letter.toLowerCase() === "x") {
           return (
             <Image
               src="/alphabet/x.jpg"
@@ -301,7 +339,7 @@ const App = () => {
               height={200}
             />
           );
-        } else if (letter === "y") {
+        } else if (letter.toLowerCase() === "y") {
           return (
             <Image
               src="/alphabet/y.jpg"
@@ -311,7 +349,7 @@ const App = () => {
               height={200}
             />
           );
-        } else if (letter === "z") {
+        } else if (letter.toLowerCase() === "z") {
           return (
             <Image
               src="/alphabet/z.jpg"
