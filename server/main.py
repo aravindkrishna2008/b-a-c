@@ -1,21 +1,21 @@
-import whisper
+import cv2
 
-model = whisper.load_model("base")
+cap = cv2.VideoCapture(1)
 
-# load audio and pad/trim it to fit 30 seconds
-audio = whisper.load_audio("hello.mp3")
-audio = whisper.pad_or_trim(audio)
+while True:
+    ret, frame = cap.read()
 
-# make log-Mel spectrogram and move to the same device as the model
-mel = whisper.log_mel_spectrogram(audio).to(model.device)
+    # black and white
+    frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
-# detect the spoken language
-_, probs = model.detect_language(mel)
-print(f"Detected language: {max(probs, key=probs.get)}")
+    # blur
+    frame = cv2.GaussianBlur(frame, (21, 21), 0)
 
-# decode the audio
-options = whisper.DecodingOptions(fp16=False)
-result = whisper.decode(model, mel, options)
 
-# print the recognized text
-print(result.text)
+    cv2.imshow('Camera', frame)
+
+    if cv2.waitKey(1) == ord('q'):
+        break
+
+cap.release()
+cv2.destroyAllWindows()

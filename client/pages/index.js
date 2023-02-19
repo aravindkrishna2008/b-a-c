@@ -359,6 +359,16 @@ const App = () => {
               height={200}
             />
           );
+        } else if (letter.toLowerCase() === " ") {
+          return (
+            <Image
+              src="/alphabet/space.jpg"
+              alt="logo"
+              className="sponserImage"
+              width={130}
+              height={200}
+            />
+          );
         }
       })}
     </div>
