@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+from flask_cors import cross_origin
 import os
 import whisper
 from pymongo import MongoClient
@@ -21,6 +22,7 @@ def ping():
     return jsonify("pong")
 
 @app.route('/upload-file/', methods=['POST'])
+@cross_origin()
 def upload_file():
     if request.method == 'POST':
         file = request.files['file']
@@ -42,19 +44,21 @@ def upload_file():
 
         # print the recognized text
         print(result.text)
-        os.remove(result.filename)
+        text = result.text
+        translations.insert_one({"text": text})
         return jsonify(result.text)
         
 @app.route('/translations/', methods=['GET'])
+@cross_origin()
 def get_translations():
     all_translations = translations.find()
     json_data = json_util.dumps(all_translations)
     return jsonify(json.loads(json_data))
 
-@app.route('/add_translation', methods=['POST'])
-def add_translation():
-    text = request.json['text']
-    # add this text to the database
-    return jsonify(translations.insert_one({"text": text}))
+# @app.route('/add_translation', methods=['POST'])
+# def add_translation():
+#     text = request.json['text']
+#     # add this text to the database
+#     return jsonify(translations.insert_one({"text": text}))
 
 app.run(host='0.0.0.0', port="5001", debug=True)
