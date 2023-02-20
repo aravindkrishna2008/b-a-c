@@ -237,6 +237,7 @@ const App = () => {
           } else if (letter.toLowerCase() === "i") {
             return (
               <Image
+                key={index}
                 src="/alphabet/i.jpg"
                 alt="logo"
                 className="asl-image"
@@ -324,6 +325,7 @@ const App = () => {
           } else if (letter.toLowerCase() === "q") {
             return (
               <Image
+                key={index}
                 src="/alphabet/q.jpg"
                 alt="logo"
                 className="asl-image"
@@ -345,6 +347,7 @@ const App = () => {
           } else if (letter.toLowerCase() === "s") {
             return (
               <Image
+                key={index}
                 src="/alphabet/s.jpg"
                 alt="logo"
                 className="asl-image"

@@ -3,7 +3,13 @@ import Image from "next/image";
 const about = () => {
   return (
     <div>
-      <img className="slides" src="slide1.png" alt="logo" />
+      <Image
+        className="slides"
+        src="/slide1.png"
+        alt="logo"
+        layout="fill"
+        objectFit="contain"
+      />
     </div>
   );
 };
