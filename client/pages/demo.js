@@ -97,9 +97,11 @@ const App = () => {
   };
 
   const renderTextArray = () => {
-    return text.map((text) => {
+    return text.map((text, key) => {
       return (
+        // <li key={text._id}>
         <button
+          key={key}
           onClick={() => {
             setData(text);
           }}
@@ -107,6 +109,7 @@ const App = () => {
         >
           <p className="text-in-button">{text.substring(0, 30)}</p>
         </button>
+        // </li>
       );
     });
   };
@@ -136,16 +139,17 @@ const App = () => {
           )}{" "}
         </div>
 
-        <div className="history-page">
+        <ul className="history-page">
           <h2>History</h2>
           {renderTextArray()}
-        </div>
+        </ul>
       </div>
-      <div className="sign-language">
-        {alphabet.map((letter) => {
+      <ul className="sign-language">
+        {alphabet.map((letter, index) => {
           if (letter.toLowerCase() === "a") {
             return (
-              <img
+              <Image
+                key={index}
                 src="/alphabet/a.jpg"
                 alt="logo"
                 className="asl-image"
@@ -156,6 +160,7 @@ const App = () => {
           } else if (letter.toLowerCase() === "b") {
             return (
               <Image
+                key={index}
                 src="/alphabet/b.jpg"
                 alt="logo"
                 className="asl-image"
@@ -166,6 +171,7 @@ const App = () => {
           } else if (letter.toLowerCase() === "c") {
             return (
               <Image
+                key={index}
                 src="/alphabet/c.jpg"
                 alt="logo"
                 className="asl-image"
@@ -176,6 +182,7 @@ const App = () => {
           } else if (letter.toLowerCase() === "d") {
             return (
               <Image
+                key={index}
                 src="/alphabet/d.jpg"
                 alt="logo"
                 className="asl-image"
@@ -186,6 +193,7 @@ const App = () => {
           } else if (letter.toLowerCase() === "e") {
             return (
               <Image
+                key={index}
                 src="/alphabet/e.jpg"
                 alt="logo"
                 className="asl-image"
@@ -196,6 +204,7 @@ const App = () => {
           } else if (letter.toLowerCase() === "f") {
             return (
               <Image
+                key={index}
                 src="/alphabet/f.jpg"
                 alt="logo"
                 className="asl-image"
@@ -206,6 +215,7 @@ const App = () => {
           } else if (letter.toLowerCase() === "g") {
             return (
               <Image
+                key={index}
                 src="/alphabet/g.jpg"
                 alt="logo"
                 className="asl-image"
@@ -216,6 +226,7 @@ const App = () => {
           } else if (letter.toLowerCase() === "h") {
             return (
               <Image
+                key={index}
                 src="/alphabet/h.jpg"
                 alt="logo"
                 className="asl-image"
@@ -236,6 +247,7 @@ const App = () => {
           } else if (letter.toLowerCase() === "j") {
             return (
               <Image
+                key={index}
                 src="/alphabet/j.jpg"
                 alt="logo"
                 className="asl-image"
@@ -246,6 +258,7 @@ const App = () => {
           } else if (letter.toLowerCase() === "k") {
             return (
               <Image
+                key={index}
                 src="/alphabet/k.jpg"
                 alt="logo"
                 className="asl-image"
@@ -256,6 +269,7 @@ const App = () => {
           } else if (letter.toLowerCase() === "l") {
             return (
               <Image
+                key={index}
                 src="/alphabet/l.jpg"
                 alt="logo"
                 className="asl-image"
@@ -266,6 +280,7 @@ const App = () => {
           } else if (letter.toLowerCase() === "m") {
             return (
               <Image
+                key={index}
                 src="/alphabet/m.jpg"
                 alt="logo"
                 className="asl-image"
@@ -276,6 +291,7 @@ const App = () => {
           } else if (letter.toLowerCase() === "n") {
             return (
               <Image
+                key={index}
                 src="/alphabet/n.jpg"
                 alt="logo"
                 className="asl-image"
@@ -286,6 +302,7 @@ const App = () => {
           } else if (letter.toLowerCase() === "o") {
             return (
               <Image
+                key={index}
                 src="/alphabet/o.jpg"
                 alt="logo"
                 className="asl-image"
@@ -296,6 +313,7 @@ const App = () => {
           } else if (letter.toLowerCase() === "p") {
             return (
               <Image
+                key={index}
                 src="/alphabet/p.jpg"
                 alt="logo"
                 className="asl-image"
@@ -316,6 +334,7 @@ const App = () => {
           } else if (letter.toLowerCase() === "r") {
             return (
               <Image
+                key={index}
                 src="/alphabet/r.jpg"
                 alt="logo"
                 className="asl-image"
@@ -336,6 +355,7 @@ const App = () => {
           } else if (letter.toLowerCase() === "t") {
             return (
               <Image
+                key={index}
                 src="/alphabet/t.jpg"
                 alt="logo"
                 className="asl-image"
@@ -346,6 +366,7 @@ const App = () => {
           } else if (letter.toLowerCase() === "u") {
             return (
               <Image
+                key={index}
                 src="/alphabet/u.jpg"
                 alt="logo"
                 className="asl-image"
@@ -356,6 +377,7 @@ const App = () => {
           } else if (letter.toLowerCase() === "v") {
             return (
               <Image
+                key={index}
                 src="/alphabet/v.jpg"
                 alt="logo"
                 className="asl-image"
@@ -366,6 +388,7 @@ const App = () => {
           } else if (letter.toLowerCase() === "w") {
             return (
               <Image
+                key={index}
                 src="/alphabet/w.jpg"
                 alt="logo"
                 className="asl-image"
@@ -376,6 +399,7 @@ const App = () => {
           } else if (letter.toLowerCase() === "x") {
             return (
               <Image
+                key={index}
                 src="/alphabet/x.jpg"
                 alt="logo"
                 className="asl-image"
@@ -386,6 +410,7 @@ const App = () => {
           } else if (letter.toLowerCase() === "y") {
             return (
               <Image
+                key={index}
                 src="/alphabet/y.jpg"
                 alt="logo"
                 className="asl-image"
@@ -396,6 +421,7 @@ const App = () => {
           } else if (letter.toLowerCase() === "z") {
             return (
               <Image
+                key={index}
                 src="/alphabet/z.jpg"
                 alt="logo"
                 className="asl-image"
@@ -406,6 +432,7 @@ const App = () => {
           } else if (letter.toLowerCase() === " ") {
             return (
               <Image
+                key={index}
                 src="/alphabet/space.jpg"
                 alt="logo"
                 className="asl-image"
@@ -415,7 +442,7 @@ const App = () => {
             );
           }
         })}
-      </div>
+      </ul>
     </div>
   );
 };
