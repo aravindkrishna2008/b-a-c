@@ -42,6 +42,7 @@ def upload_file():
 
         # print the recognized text
         print(result.text)
+        os.remove(result.filename)
         return jsonify(result.text)
         
 @app.route('/translations/', methods=['GET'])
