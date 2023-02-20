@@ -98,7 +98,16 @@ const App = () => {
 
   const renderTextArray = () => {
     return text.map((text) => {
-      return <div className="history-item">{text.substring(0, 30)}</div>;
+      return (
+        <button
+          onClick={() => {
+            setData(text);
+          }}
+          className="history-item"
+        >
+          <p className="text-in-button">{text.substring(0, 30)}</p>
+        </button>
+      );
     });
   };
   return (
@@ -110,7 +119,7 @@ const App = () => {
             onClick={start}
             disabled={isRecording}
           >
-            Record
+            <p className="text-in-button">Record</p>
           </button>
           <button
             className="glow-on-hover"
@@ -118,7 +127,7 @@ const App = () => {
             onClick={stop}
             disabled={!isRecording}
           >
-            Stop
+            <p className="text-in-button">Stop</p>
           </button>
           {isRecording ? (
             <div className="blink_me"></div>
@@ -126,7 +135,11 @@ const App = () => {
             <div>Waiting to start...</div>
           )}{" "}
         </div>
-        <div>{renderTextArray()}</div>
+
+        <div className="history-page">
+          <h2>History</h2>
+          {renderTextArray()}
+        </div>
       </div>
       <div className="sign-language">
         {alphabet.map((letter) => {
