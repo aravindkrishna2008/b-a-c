@@ -44,7 +44,7 @@ const App = () => {
     formData.append("file", file);
     try {
       const res = await axios.post(
-        "http://6acd-24-5-37-45.ngrok.io/upload-file/",
+        "https://6acd-24-5-37-45.ngrok.io/upload-file/",
         formData,
         {
           headers: {
@@ -63,7 +63,7 @@ const App = () => {
 
   const history = () => {
     // get all the past text from the server using fetch
-    fetch("http://6acd-24-5-37-45.ngrok.io/translations/")
+    fetch("https://6acd-24-5-37-45.ngrok.io/translations/")
       .then((response) => response.json())
       .then((data) => {
         // setText(data);
